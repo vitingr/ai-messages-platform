@@ -13,14 +13,12 @@ const CreatePrompt = () => {
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({ prompt: "", tag: "" });
 
+  // Função de Criar Prompt
   const createPrompt = async (e) => {
     e.preventDefault();
     setSubmitting(true);
 
-    console.log("A")
-
     try {
-      console.log("B")
       const response = await fetch("/api/prompt/new", {
         method: "POST",
         body: JSON.stringify({
@@ -28,12 +26,7 @@ const CreatePrompt = () => {
           userId: session?.user.id,
           tag: post.tag,
         }),
-      });
-
-      console.log("C")
-
-
-      console.log(response)
+      }); // Aqui vai realizar o POST
 
       if (response.ok) {
         router.push("/");
@@ -46,7 +39,7 @@ const CreatePrompt = () => {
   };
 
   return (
-    <Form
+    <Form 
       type='Criar'
       post={post}
       setPost={setPost}

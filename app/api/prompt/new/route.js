@@ -15,5 +15,5 @@ export const POST = async (request) => {
     } catch (error) {
         return new Response(`Falhar ao criar o Prompt, ${error}`, { status: 500 })
     }
-}
+} // Aqui que retorna os erros caso não consiga acesso a API
 // ESSA É UMA ROTA DE API
